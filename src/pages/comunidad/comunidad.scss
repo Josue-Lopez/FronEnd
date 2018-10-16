@@ -1,0 +1,14 @@
+page-comunidad {
+    .bordes-card{
+        border-radius: 15px 15px 15px 15px;
+      }
+    
+    .fondo{
+        background-image: url('../../assets/imgs/logoBP_Transparente.png');
+        background-repeat: no-repeat;
+        background-size:100% auto;
+        background-position: center;
+        position: relative;
+        border: none;
+    }
+}

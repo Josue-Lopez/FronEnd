@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ComentarioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+  {{post.fecha | date: 'MMM - d | hh:mm a' }}
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>comentario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row>
+          <ion-card *ngFor="let post of NewPost">
+              <img src="" *ngIf="isFoto">
+              <ion-card-content>
+              <span>Usuario</span>
+                <ion-card-title>
+                    Mensaje
+                  </ion-card-title>
+                <p>
+                    fecha
+                </p>
+                <div style="text-align: right">
+                    <span class="button" (click)="Comentarios(post)">
+                        <ion-icon ios="ios-chatboxes" md="md-chatboxes" name="cart" item-start></ion-icon>
+                        Comentar
+                    </span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+      </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,14 @@
+page-productos {
+    .bordes-card{
+        border-radius: 0px 0px 25px 25px;
+      }
+
+    .fondo{
+        background-image: url('../../assets/imgs/logoBP_Transparente.png');
+        background-repeat: no-repeat;
+        background-size:100% auto;
+        background-position: center;
+        position: relative;
+        border: none;
+    }
+}

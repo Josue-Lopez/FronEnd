@@ -1,0 +1,36 @@
+<!--
+  Generated template for the NoticiasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Noticias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background-page fondo">
+<!-- CARGAR-->
+<div class="text-warning">
+  <ion-row>
+    <ion-card *ngFor="let item of ListPost" class="bordes-card border-warning mb-3 card text-center">
+        <img src="{{item.imagen}}">
+      <ion-card-content>
+      <span>{{item.usuario}}</span>
+        <p class="text-justify font-weight-light">
+            {{item.mensaje}}
+        </p>
+      </ion-card-content>
+      <div class="card-footer text-muted">
+        <ion-icon ios="md-clock" md="md-clock"></ion-icon>
+        {{item.fecha}}
+      </div>
+  </ion-card>
+</ion-row>
+</div>
+<!-- CARGAR -->
+</ion-content>

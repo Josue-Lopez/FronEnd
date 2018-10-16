@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar color="bp_primary">
+        <ion-buttons>
+          <button ion-button icon-left (click)="tomarFoto()" color="footer">
+            <ion-icon name="camera"></ion-icon>Tomar Foto
+          </button>
+          <button ion-button icon-left (click)="CargarFoto()" color="footer" [disabled]="lastImage === null">
+            <ion-icon name="cloud-upload"></ion-icon>Cargar
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+</ion-header>  
+
+<ion-content padding class="card-background-page fondo">
+
+<p aling="center" class="opacidad"><img src="{{foto}}"></p>
+
+<ion-row class="post_row">
+  <ion-col col-9>
+          <ion-item class="no-lines">
+              <ion-textarea color="footer" type="text" placeholder="Post" [(ngModel)]="message" item-height="75%"></ion-textarea>
+            </ion-item>
+  </ion-col>
+  <ion-col col-3>
+    <button ion-button clear color="footer" (click)="GuardarImagen()" [disabled]="message === ''">Enviar</button>
+  </ion-col>
+</ion-row>
+
+<ion-grid>
+<div class="text-warning">
+    <ion-row>
+        <ion-card *ngFor="let post of NewPost" class="bordes-card border-warning mb-3">
+            <img src="{{post.url}}">
+            <ion-card-content>
+            <span>{{post.usuario}}</span>
+              <ion-card-title>
+                  {{post.texto}}
+                </ion-card-title>
+              <p>
+                  {{post.fecha | date: 'MMM - d | hh:mm a' }}
+              </p>
+              <div style="text-align: right">
+                  <span class="button" (click)="Comentarios(post)">
+                      <ion-icon ios="ios-chatboxes" md="md-chatboxes" name="cart" item-start></ion-icon>
+                      Comentar
+                  </span>
+              </div>
+            </ion-card-content>
+          </ion-card>
+    </ion-row>
+</div>
+
+<!-- CARGAR-->
+<div class="text-warning">
+    <ion-row>
+      <ion-card *ngFor="let item of ListPost" class="bordes-card border-warning mb-3">
+          <img src="{{item.imagen}}">
+        <ion-card-content>
+        <span>{{item.usuario}}</span>
+          <ion-card-title>
+              {{item.mensaje}}
+          </ion-card-title>
+          <p>
+              {{item.fecha}}
+          </p>
+          <div style="text-align: right">
+              <span class="button" (click)="Comentarios(item)">
+                  <ion-icon  ios="ios-chatbubbles-outline" md="md-chatbubbles" name="chatbubbles" item-start></ion-icon>
+                  Comentar
+              </span>
+          </div>
+        </ion-card-content>
+    </ion-card>
+  </ion-row>
+</div>
+<!-- CARGAR -->
+</ion-grid>
+</ion-content>
+
+<ion-footer>
+
+</ion-footer>

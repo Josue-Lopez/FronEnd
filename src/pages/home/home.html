@@ -1,0 +1,77 @@
+<ion-header>
+      <ion-navbar  color="bp_primary">
+          <ion-row>
+              <hr>
+                <img src="../../assets/imgs/logoBP.png" width="50px" height="50">
+                <ion-title>
+                  Somos BP
+                </ion-title>
+        </ion-row>
+        </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+  <button ion-button (click)="tomarFoto()">Tomar Foto</button>
+  <button ion-button (click)="CargarFoto()">Cargar Foto</button>
+
+  <p aling="center"><img src="{{foto}}"></p>
+
+  <ion-row class="post_row">
+    <ion-col col-9>
+      <ion-item class="no-lines">
+        <ion-input type="text" placeholder="Post" [(ngModel)]="message"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <button ion-button clear color="primary" (click)="GuardarImagen()" [disabled]="message === ''">Enviar</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid>
+
+    <ion-row>
+        <ion-card  *ngFor="let post of NewPost">
+            <img src="{{post.url}}">
+            <ion-card-content>
+            <span>{{post.usuario}}</span>
+              <ion-card-title>
+                  {{post.texto}}
+                </ion-card-title>
+              <p>
+                  {{post.fecha | date: 'MMM - d | hh:mm a' }}
+              </p>
+              <div style="text-align: right">
+                  <span class="button" (click)="Comentarios(post)">
+                      <ion-icon ios="ios-chatboxes" md="md-chatboxes" name="cart" item-start></ion-icon>
+                      Comentar
+                  </span>
+              </div>
+            </ion-card-content>
+          </ion-card>
+    </ion-row>
+
+
+<!--
+      <ion-card  *ngFor="let item of ListPost">
+          <img src="{{item.imagen}}">
+          <ion-card-content>
+          <span>{{item.usuario}}</span>
+            <ion-card-title>
+                {{item.mensaje}}
+              </ion-card-title>
+            <p>
+                {{item.fecha | date: 'MMM - d | hh:mm a' }}
+            </p>
+            <div style="text-align: right">
+                <span class="button" (click)="Comentarios(item)">
+                    <ion-icon ios="ios-chatboxes" md="md-chatboxes" name="cart" item-start></ion-icon>
+                    Comentar
+                </span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+  </ion-row>
+
+-->
+  </ion-grid>
+</ion-content>
